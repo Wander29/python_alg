@@ -1,10 +1,18 @@
 import math
 import heapq
 
+##################################################################
+#       Classe GRAFO
+#################################################################
+#Corrisponde alla griglia del piano cartesiano, i nodi sono i Vertici
+#è l'oggetto griglia che contiene tutti i nodi e li gestisce
 class Grafo(object):
-    def __init__(self):
+    def __init__(self, x, y):
         self._nodes = []
         self._indices = {} #dizionario, chiave-valore
+        for righe in range(y):
+            for colonne in range(x):
+                self.add_node(Nodo(righe, colonne))
 
     def add_node(self, nodo):
         if nodo not in self._indices:
@@ -32,9 +40,45 @@ class Grafo(object):
     def get_node(self, u):
         return self._nodes[self._indices[u]]
 
+    def get_node_by_index(self, i):
+        return self._nodes[i]
+
     def get_index(self, nodo):
         return self._indices[nodo]
 
+    def get_indexes(self):
+        return self._indices[:]
+    ###########################################
+    # RIMOZIONE Ostacoli
+    ####################
+    node_to_delete = []
+
+    def condemnNodo(self, x, y):
+        self.nodeDying = Nodo(x, y)
+
+        for next in grafo.get_nodes():
+            if next == self.nodeDying:
+                self.nodeDying = next
+
+        if self.nodeDying not in self.node_to_delete:
+            self.node_to_delete.append(self.nodeDying)
+
+    def removeNodiCondemned(self):
+        for nextKill in self.node_to_delete:
+            grafo.__removeNode__(nextKill)
+        self.node_to_delete.clear()
+
+    def __removeNode__(self, nodo): #non li cancella dalla lista dei nodi ma ne annulla solo i valori
+        if nodo in self._indices:
+            self._nodes[self.get_index(nodo)].x = None
+            self._nodes[self.get_index(nodo)].y = None
+
+##################################################################
+#       Classe NODO
+#################################################################
+#Contiente solamente le coordinate e la lista dei vicini che inizialmente è vuota e viene
+#riempita solo se il nodo è di interesse al percorso che si sta cercando
+#ridefinisce i 'compare' tra le sue istanze in modo da poterli confrontare
 class Nodo(object):
     def __init__(self, x, y):
         self.x = x
@@ -64,31 +108,27 @@ def euristica(end, nodo):
     dist_elevata = math.pow(end.x - nodo.x, 2) + math.pow(end.y - nodo.y, 2)
     return round(math.sqrt(dist_elevata), 5)
 
-#MAIN
+
+
+
+
+##################################################################
+#       MAIN
+#################################################################
+
 #rappresentazione piano cartesiano in una griglia
-grafo = Grafo()
-for x in range(50):
-    for y in range(50):
-        grafo.add_node(Nodo(x,y))
+grafo = Grafo(1000, 1000) #griglia x * y, parte da 0 quindi il valore max è x-1
 
-#aggiunta vicini per ogni nodo
-for next in grafo.get_nodes():
-    grafo.find_adjacents(next)
+start = Nodo(956, 874) #punto iniziale
+end = Nodo (0, 0) #punto di arrivo
 
-#for next in grafo.get_nodes():
-    #if next.x == 4:
-        #if next.y == 4:
-            #for adj in next.get_adjacents():
-                #print (adj.x, adj.y)
-            #print("X=", next.x, "Y=", next.y, "-> adjacents =", len(next.get_adjacents()))
-
-#Algoritmo A*
-start = Nodo(4, 2) #punto iniziale
-end = Nodo (23, 36) #punto di arrivo
+##################################################################
+#       Algoritmo A*
+#################################################################
 
 for nodo in grafo.get_nodes():
     if nodo == start:
-        start = nodo
+        start = nodo #assegnazione dei veri Nodi già esistenti in griglia,per non duplicarli
     if nodo == end:
         end = nodo
 
@@ -104,7 +144,8 @@ while not len(frontier) == 0: #finchè la coda non è vuota
 
     if current == end: #se arrivati al punto d'arrivo
         break
-    cnt = 0
+    cnt = 0 #usato per la doppia priorità in modo da evitare stati di uguaglianza nella coda
+    grafo.find_adjacents(current) #cerca i vicini solo del punto estratto dalla coda, non di tutti
     for next in current.get_adjacents():
         new_cost = costo_finora[current] + 1 # costo movimenti = 1, per tutti
         if next not in costo_finora or new_cost < costo_finora[next]:
@@ -113,8 +154,9 @@ while not len(frontier) == 0: #finchè la coda non è vuota
             heapq.heappush(frontier, (priority, cnt, next))
             came_from[next] = current
         cnt += 1
-
-#fine algoritmo, ricreo il percorso
+#####################################################
+#       fine algoritmo, ricreo il percorso
+##########################################
 nodo_corrente = end
 path = []
 while nodo_corrente != start:
@@ -125,3 +167,26 @@ print("#FROM Start[", start.x, ',', start.y, "] | TO End[", end.x, ',', end.y, "
 for next in path:
     print("X:", next.x, "Y:", next.y)
 print("#Costo:", costo_finora[end])
+
+##################################################################
+#       Rimozione Ostacoli
+#################################################################
+
+
+
+
+
+#######»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»####
+#grafo.condemnNodo(4, 2) #condanni un nodo aggiungendolo alla lista dei condannati
+#grafo.removeNodiCondemned() #rimuovi tutti i condannati
+
+print ( "gat")
+
+
+#for next in grafo.get_nodes():
+    #if next.x == 4:
+        #if next.y == 4:
+            #for adj in next.get_adjacents():
+                #print (adj.x, adj.y)
+            #print("X=", next.x, "Y=", next.y, "-> adjacents =", len(next.get_adjacents()))
+

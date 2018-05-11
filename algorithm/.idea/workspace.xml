@@ -14,9 +14,25 @@
       <file leaf-file-name="algor.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/algor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1020">
+            <state relative-caret-position="136">
+              <caret line="121" column="21" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="21" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#189#346#0" />
+                <element signature="e#526#830#0" />
+                <element signature="e#721#852#0" />
+                <element signature="e#887#908#0" />
+                <element signature="e#945#981#0" />
+                <element signature="e#1027#1048#0" />
+                <element signature="e#1152#1175#0" />
+                <element signature="e#1268#1522#0" />
+                <element signature="e#1905#1962#0" />
+                <element signature="e#2003#2067#0" />
+                <element signature="e#2106#2130#0" />
+                <element signature="e#2169#2333#0" />
+                <element signature="e#2367#2389#0" />
+                <element signature="e#2422#2468#0" />
+                <element signature="e#2553#2670#0" />
               </folding>
             </state>
           </provider>
@@ -27,6 +43,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>cost_so_far</find>
+      <find>_indices</find>
+      <find>add_node</find>
     </findStrings>
     <replaceStrings>
       <replace>costo_finora</replace>
@@ -38,10 +56,11 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_5.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/example_PriorityQueue.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py" />
+        <option value="$PROJECT_DIR$/scripts/algor.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="15" />
     <option name="y" value="120" />
     <option name="width" value="1890" />
@@ -60,6 +79,11 @@
               <item name="algorithm" type="b2602c69:ProjectViewProjectNode" />
               <item name="algorithm" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="algorithm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -68,6 +92,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python&#10;BuildoutCfg" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Python" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\_Working\projects\python_algortihm\algorithm\scripts" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -164,17 +195,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="33" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18579236" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30952382" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29761904" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39965987" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5119048" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -189,20 +221,60 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="19" />
+      <option name="time" value="32" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scripts/scratch_4.py">
+    <entry file="file://$PROJECT_DIR$/scripts/algor.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="33" lean-forward="true" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#189#346#0" />
+            <element signature="e#526#830#0" />
+            <element signature="e#721#852#0" />
+            <element signature="e#887#908#0" />
+            <element signature="e#945#981#0" />
+            <element signature="e#1027#1048#0" />
+            <element signature="e#1152#1175#0" />
+            <element signature="e#1268#1522#0" />
+            <element signature="e#1905#1962#0" />
+            <element signature="e#2003#2067#0" />
+            <element signature="e#2106#2130#0" />
+            <element signature="e#2169#2333#0" />
+            <element signature="e#2367#2389#0" />
+            <element signature="e#2422#2468#0" />
+            <element signature="e#2553#2670#0" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/algor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#189#346#0" />
+            <element signature="e#526#830#0" />
+            <element signature="e#721#852#0" />
+            <element signature="e#887#908#0" />
+            <element signature="e#945#981#0" />
+            <element signature="e#1027#1048#0" />
+            <element signature="e#1152#1175#0" />
+            <element signature="e#1268#1522#0" />
+            <element signature="e#1905#1962#0" />
+            <element signature="e#2003#2067#0" />
+            <element signature="e#2106#2130#0" />
+            <element signature="e#2169#2333#0" />
+            <element signature="e#2367#2389#0" />
+            <element signature="e#2422#2468#0" />
+            <element signature="e#2553#2670#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/scratch_4.py" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2.py" />
     <entry file="file://C:/Program Files (x86)/Python36-32/Lib/queue.py">
@@ -228,21 +300,35 @@
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/example_PriorityQueue.py" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py" />
-    <entry file="file://$PROJECT_DIR$/scripts/scratch_4.py">
+    <entry file="file://$PROJECT_DIR$/scripts/scratch_4.py" />
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="200">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/algor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1020">
+        <state relative-caret-position="136">
+          <caret line="121" column="21" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="21" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#189#346#0" />
+            <element signature="e#526#830#0" />
+            <element signature="e#721#852#0" />
+            <element signature="e#887#908#0" />
+            <element signature="e#945#981#0" />
+            <element signature="e#1027#1048#0" />
+            <element signature="e#1152#1175#0" />
+            <element signature="e#1268#1522#0" />
+            <element signature="e#1905#1962#0" />
+            <element signature="e#2003#2067#0" />
+            <element signature="e#2106#2130#0" />
+            <element signature="e#2169#2333#0" />
+            <element signature="e#2367#2389#0" />
+            <element signature="e#2422#2468#0" />
+            <element signature="e#2553#2670#0" />
           </folding>
         </state>
       </provider>
