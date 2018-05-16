@@ -8,9 +8,6 @@ from filecmp import cmp
 class Grafo(object):
     # Corrisponde alla griglia del piano cartesiano, i nodi sono i Vertici
     # è l'oggetto griglia che contiene tutti i nodi e li gestisce
-    costo_straight = 1
-    costo_diagonale = math.sqrt()
-
     def __init__(self, x, y):
         self._nodes = []
         self._indices = {} #dizionario, chiave-valore
@@ -265,14 +262,6 @@ class Grafo(object):
                 self._nodes[self.get_index(nextKill)].y = None
         self.node_to_delete.clear()
 
-    def costoMovimento(self, p1, p2):
-        if math.fabs(p1.x -p2.x) == 1 and math.fabs(p1.y -p2.y) == 1:
-            return costo_diagonale
-        else:
-            return costo_straight
-
-
-
 class Nodo(object):
     # Contiente solamente le coordinate e la lista dei vicini che inizialmente è vuota e viene
     # riempita solo se il nodo è di interesse al percorso che si sta cercando
@@ -387,9 +376,6 @@ def euristica(end, nodo): # funzione di calcolo distanza Euristica (istintiva)
     dist_elevata = math.pow(end.x - nodo.x, 2) + math.pow(end.y - nodo.y, 2)
     return round(math.sqrt(dist_elevata), 5)
 
-def pitagora(a, b):
-    return round(math.sqrt(math.pow(a)), 5)
-
 ##################################################################
 #       MAIN
 #################################################################
@@ -400,30 +386,17 @@ def main():
     start = Nodo(0, 0) #punto iniziale
     end = Nodo (10, 10) #punto di arrivo
 
-    v1 = grafo.findNodo(3,3)
-    v2 = grafo.findNodo(5,3)
-    v3 = grafo.findNodo(5,6)
+    v1 = grafo.findNodo(1,5)
+    v2 = grafo.findNodo(1,1)
+    v3 = grafo.findNodo(9,1)
     tr = Triangolo(v1, v2, v3)
 
-    v1 = grafo.findNodo(5, 8)
-    v2 = grafo.findNodo(6, 8)
-    v3 = grafo.findNodo(6, 9)
-    tr2 = Triangolo(v1, v2, v3)
-
-    v1 = grafo.findNodo(6, 1)
-    v2 = grafo.findNodo(8, 1)
-    v3 = grafo.findNodo(6, 3)
-    tr3 = Triangolo(v1, v2, v3)
-
-    v1 = grafo.findNodo(3, 3)
-    v2 = grafo.findNodo(2, 7)
-    v3 = grafo.findNodo(4, 7)
-    tr4 = Triangolo(v1, v2, v3)
-
+    #v1 = grafo.findNodo(0, 14)
+    #v2 = grafo.findNodo(20, 14)
+    #v3 = grafo.findNodo(0, 13)
+    #tr2 = Triangolo(v1, v2, v3)
     grafo.add_triangolo(tr)
-    grafo.add_triangolo(tr2)
-    grafo.add_triangolo(tr3)
-    grafo.add_triangolo(tr4)
+    #grafo.add_triangolo(tr2)
 
     ##################################################################
     #       Rimozione Ostacoli
@@ -458,7 +431,7 @@ def main():
             break
         grafo.find_adjacents(current) #cerca i vicini solo del punto estratto dalla coda, non di tutti
         for next in current.get_adjacents():
-            new_cost = costo_finora[current] + grafo.costoMovimento(next, current) # costo movimenti = 1, per tutti
+            new_cost = costo_finora[current] + 1 # costo movimenti = 1, per tutti
             if next not in costo_finora or new_cost < costo_finora[next]:
                 costo_finora[next] = new_cost
                 priority = new_cost + euristica(end, next)
